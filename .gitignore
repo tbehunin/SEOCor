@@ -41,6 +41,10 @@ local.properties
 *.user
 *.sln.docstates
 
+## Ignore NuGet packages
+packages/*
+!packages/repositories.config
+
 # Build results
 
 [Dd]ebug/
