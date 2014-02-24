@@ -42,6 +42,13 @@
     <Compile Include="DTO\SiteDTO.cs" />
     <Compile Include="Interfaces\ISiteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteService\SiteService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEOCor.Data\SEOCor.Data.csproj">
+      <Project>{7f7f58be-baa4-4020-b1df-56267503df49}</Project>
+      <Name>SEOCor.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
