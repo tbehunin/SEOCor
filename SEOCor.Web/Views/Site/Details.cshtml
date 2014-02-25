@@ -1,0 +1,50 @@
+﻿@model SEOCor.Services.DTO.SiteDTO
+
+@{
+    ViewBag.Title = "Site Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SiteDTO</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Domain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Domain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrackingCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrackingCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { Id = Model.SiteId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

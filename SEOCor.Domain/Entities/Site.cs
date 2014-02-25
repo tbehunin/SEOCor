@@ -8,5 +8,9 @@ namespace SEOCor.Domain.Entities
 {
     public class Site
     {
+        public int SiteId { get; set; }
+        public string Name { get; set; }
+        public string Domain { get; set; }
+        public string TrackingCode { get; set; }
     }
 }

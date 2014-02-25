@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using Autofac;
@@ -19,8 +21,11 @@ namespace SEOCor.Web.App_Start
             var builder = new ContainerBuilder();
 
             // Register dependencies here...
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<SiteService>().As<ISiteService>();
-            builder.RegisterType<SiteRepository>().As<ISiteRepository>();
+            builder.RegisterType<SiteRepository>()
+                .WithParameter("connectionString", ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString)
+                .As<ISiteRepository>();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

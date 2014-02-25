@@ -17,9 +17,37 @@ namespace SEOCor.Services.SiteService
             _siteRepository = siteRepository;
         }
 
-        public IList<DTO.SiteDTO> GetSites(string userId)
+        public IEnumerable<DTO.SiteDTO> GetSites(string userId)
         {
-            throw new NotImplementedException();
+            return _siteRepository.GetSites(userId).Select(x => new DTO.SiteDTO
+            {
+                Domain = x.Domain,
+                Name = x.Name,
+                SiteId = x.SiteId,
+                TrackingCode = x.TrackingCode
+            }).ToList();
+        }
+
+        public DTO.SiteDTO GetSite(int siteId)
+        {
+            var site = _siteRepository.GetSite(siteId);
+            return new DTO.SiteDTO
+            {
+                Domain = site.Domain,
+                Name = site.Name,
+                SiteId = site.SiteId,
+                TrackingCode = site.TrackingCode
+            };
+        }
+
+        public int AddSite(string userId, string name, string domain)
+        {
+            return _siteRepository.AddSite(userId, name, domain);
+        }
+
+        public void UpdateSite(int siteId, string name, string domain)
+        {
+            _siteRepository.UpdateSite(siteId, name, domain);
         }
     }
 }

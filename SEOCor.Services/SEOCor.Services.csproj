@@ -49,6 +49,10 @@
       <Project>{7f7f58be-baa4-4020-b1df-56267503df49}</Project>
       <Name>SEOCor.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SEOCor.Domain\SEOCor.Domain.csproj">
+      <Project>{d19b8112-e682-43de-afab-d7559d2550e6}</Project>
+      <Name>SEOCor.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

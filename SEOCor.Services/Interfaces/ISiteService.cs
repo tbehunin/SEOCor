@@ -9,6 +9,9 @@ namespace SEOCor.Services.Interfaces
 {
     public interface ISiteService
     {
-        IList<SiteDTO> GetSites(string userId);
+        IEnumerable<SiteDTO> GetSites(string userId);
+        SiteDTO GetSite(int siteId);
+        int AddSite(string userId, string name, string domain);
+        void UpdateSite(int siteId, string name, string domain);
     }
 }
