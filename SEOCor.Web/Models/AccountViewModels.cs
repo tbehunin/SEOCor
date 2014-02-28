@@ -31,7 +31,8 @@ namespace SEOCor.Web.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string UserName { get; set; }
 
         [Required]
@@ -46,7 +47,8 @@ namespace SEOCor.Web.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string UserName { get; set; }
 
         [Required]

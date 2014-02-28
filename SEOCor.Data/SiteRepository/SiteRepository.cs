@@ -16,65 +16,52 @@ namespace SEOCor.Data.SiteRepository
 
         public IEnumerable<Domain.Entities.Site> GetSites(string userId)
         {
-            return new List<Domain.Entities.Site>
+            return DataContext.UserSites
+                .Where(x => x.UserId.Equals(userId))
+                .Select(x => new Domain.Entities.Site
+                {
+                    SiteId = x.Site.SiteId,
+                    Name = x.Site.Name,
+                    Domain = x.Site.Domain,
+                    AnalyticsSiteId = x.Site.AnalyticsSiteId
+                }).ToList();
+        }
+
+
+        public Domain.Entities.Site GetSite(int siteId)
+        {
+            return DataContext.Sites.Where(x => x.SiteId.Equals(siteId)).Select(x => new Domain.Entities.Site
+                {
+                    SiteId = x.SiteId,
+                    Name = x.Name,
+                    Domain = x.Domain,
+                    AnalyticsSiteId = x.AnalyticsSiteId
+                }).SingleOrDefault();
+        }
+
+        public int AddSite(string userId, string siteName, string domain, int analyticsSiteId)
+        {
+            var userSite = new UserSite
             {
-                new Site
+                UserId = userId,
+                Site = new Site
                 {
-                    Domain = "domain1",
-                    Name = "name1",
-                    SiteId = 1,
-                    TrackingCode = "trackingcode1"
-                },
-                new Site
-                {
-                    Domain = "domain2",
-                    Name = "name2",
-                    SiteId = 2,
-                    TrackingCode = "trackingcode2"
+                    Name = siteName,
+                    Domain = domain,
+                    AnalyticsSiteId = analyticsSiteId
                 }
             };
-            /*var sproc = "wotc_AddMtGOLoginEvent";
-
-            // Build parameter object
-            dynamic parameters = new DynamicParameters();
-            parameters.AddDynamicParams(new
-            {
-                UserId = userId
-            });
-            parameters.Add("@ReturnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
-
-            // Execute sproc and get result
-            var sites = Query<Site>(sproc, parameters);
-            var returnValue = parameters.Get<int>("@ReturnValue");
-
-            if (!returnValue.Equals(0))
-            {
-                throw new Exception(string.Format("Stored Procedure '{0}' did not return zero (which indicates success).", sproc));
-            }
-
-            return sites;*/
+            DataContext.UserSites.InsertOnSubmit(userSite);
+            DataContext.SubmitChanges();
+            return userSite.Site.SiteId;
         }
 
-
-        public Site GetSite(int siteId)
+        public void UpdateSite(int siteId, string siteName, string domain)
         {
-            return new Site
-            {
-                Domain = "domain1",
-                Name = "name1",
-                SiteId = 1,
-                TrackingCode = "trackingcode1"
-            };
-        }
-
-        public int AddSite(string userId, string name, string domain)
-        {
-            return 123;
-        }
-
-        public void UpdateSite(int siteId, string name, string domain)
-        {
-            // todo
+            var site = DataContext.Sites.Where(x => x.SiteId.Equals(siteId)).SingleOrDefault();
+            site.Name = siteName;
+            site.Domain = domain;
+            DataContext.SubmitChanges();
         }
     }
 }

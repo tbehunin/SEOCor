@@ -10,6 +10,6 @@ namespace SEOCor.Services.DTO
         public int SiteId { get; set; }
         public string Name { get; set; }
         public string Domain { get; set; }
-        public string TrackingCode { get; set; }
+        public int AnalyticsSiteId { get; set; }
     }
 }

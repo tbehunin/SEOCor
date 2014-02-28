@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Web
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEOCor.Spa", "SEOCor.Spa\SEOCor.Spa.csproj", "{22A33718-D5BB-477D-B632-DD27C80F75CB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEOCor.Spa.Tests", "SEOCor.Spa.Tests\SEOCor.Spa.Tests.csproj", "{073DE531-8A9F-49C3-8AAC-34903B5D516E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEOCor.Web", "SEOCor.Web\SEOCor.Web.csproj", "{2F41C4EA-209D-4C54-A689-3DFBABB88437}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEOCor.Web.Tests", "SEOCor.Web.Tests\SEOCor.Web.Tests.csproj", "{96699951-CB5E-433B-B68D-4B42203B45DA}"
@@ -25,14 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{22A33718-D5BB-477D-B632-DD27C80F75CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22A33718-D5BB-477D-B632-DD27C80F75CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22A33718-D5BB-477D-B632-DD27C80F75CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22A33718-D5BB-477D-B632-DD27C80F75CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{073DE531-8A9F-49C3-8AAC-34903B5D516E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{073DE531-8A9F-49C3-8AAC-34903B5D516E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{073DE531-8A9F-49C3-8AAC-34903B5D516E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{073DE531-8A9F-49C3-8AAC-34903B5D516E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F41C4EA-209D-4C54-A689-3DFBABB88437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F41C4EA-209D-4C54-A689-3DFBABB88437}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F41C4EA-209D-4C54-A689-3DFBABB88437}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -13,10 +13,20 @@ namespace SEOCor.Data
     public class RepositoryBase
     {
         private string _connectionString;
+        private SEOCorDataDataContext _dataContext;
 
         public RepositoryBase(string connectionString)
         {
             _connectionString = connectionString;
+            _dataContext = new SEOCorDataDataContext(connectionString);
+        }
+
+        public SEOCorDataDataContext DataContext
+        {
+            get
+            {
+                return _dataContext;
+            }
         }
 
         protected IEnumerable<T> Query<T>(string sproc, DynamicParameters parameters)

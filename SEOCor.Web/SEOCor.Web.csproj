@@ -188,6 +188,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SiteModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -246,6 +247,7 @@
     <Content Include="Views\Site\Details.cshtml" />
     <Content Include="Views\Site\Create.cshtml" />
     <Content Include="Views\Site\Edit.cshtml" />
+    <Content Include="Views\Site\TrackingScript.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

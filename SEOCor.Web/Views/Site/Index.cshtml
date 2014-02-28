@@ -7,7 +7,7 @@
 <h2>Sites</h2>
 
 <p>
-    @Html.ActionLink("Create New Site", "Create")
+    @Html.ActionLink("Add New Site", "Create")
 </p>
 <table class="table">
     <tr>
@@ -19,9 +19,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Domain)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TrackingCode)
         </th>
         <th></th>
     </tr>
@@ -38,11 +35,8 @@
             @Html.DisplayFor(modelItem => item.Domain)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TrackingCode)
-        </td>
-        <td>
             @Html.ActionLink("Edit", "Edit", new { Id = item.SiteId }) |
-            @Html.ActionLink("Details", "Details", new { Id = item.SiteId })
+            @Html.ActionLink("Tracking Script", "TrackingScript", new { Id = item.SiteId })
         </td>
     </tr>
 }

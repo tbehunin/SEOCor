@@ -9,9 +9,9 @@ namespace SEOCor.Data.Interface
 {
     public interface ISiteRepository
     {
-        IEnumerable<Site> GetSites(string userId);
-        Site GetSite(int siteId);
-        int AddSite(string userId, string name, string domain);
-        void UpdateSite(int siteId, string name, string domain);
+        IEnumerable<Domain.Entities.Site> GetSites(string userId);
+        Domain.Entities.Site GetSite(int siteId);
+        int AddSite(string userId, string siteName, string domain, int analyticsSiteId);
+        void UpdateSite(int siteId, string siteName, string domain);
     }
 }

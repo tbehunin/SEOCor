@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.375" name="SEOCorData">
+  <DataContextMoniker Name="/SEOCorDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f2df3b12-ef29-4af9-b801-74bbc62927bb" absoluteBounds="3.5, 1.375, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/SEOCorDataDataContext/UserSite" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4af9a4e8-fd1d-428f-906a-4e474f6bc51c" absoluteBounds="3.515, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fff60807-c465-4d45-af98-0cbc2989de28" absoluteBounds="0.75, 7.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/SEOCorDataDataContext/AspNetRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb531440-3117-4b4a-ac98-460b30142e69" absoluteBounds="0.765, 7.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="89face9f-e830-4856-9603-4c95c0242c3d" absoluteBounds="3.5, 9.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SEOCorDataDataContext/AspNetUserClaim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ad1c3fd-ee6c-4186-8aad-26af6ffce782" absoluteBounds="3.515, 9.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96a83a51-b484-4538-99d3-0d9b57a23fbf" absoluteBounds="3.5, 7.375, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/SEOCorDataDataContext/AspNetUserLogin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1eaeb339-cfc9-460d-a293-5ab7e7348e21" absoluteBounds="3.515, 7.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a001a003-881d-4002-8594-ceea1a9cc1fe" absoluteBounds="3.5, 4.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/SEOCorDataDataContext/AspNetUserRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e785ea97-0891-4a73-82a6-ce569eeeefc1" absoluteBounds="3.515, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0018ca02-09d4-490f-a84b-00082f0d5384" absoluteBounds="0.75, 4.25, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/SEOCorDataDataContext/AspNetUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6523375d-eeaf-42e6-a263-6da46e9bb5ae" absoluteBounds="0.765, 4.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="01a006ff-0ad9-4ab3-a0c6-2fb0191dc1d2" absoluteBounds="0.75, 1.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SEOCorDataDataContext/Site" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f69e449-46af-4218-92c3-0ee2afde51cd" absoluteBounds="0.765, 1.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 7.50091745577925); (3.125 : 7.12591745577925); (3.125 : 6.06990996880008); (3.50091745577925 : 5.69399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SEOCorDataDataContext/AspNetRole/AspNetRole_AspNetUserRole" />
+      <nodes>
+        <classShapeMoniker Id="fff60807-c465-4d45-af98-0cbc2989de28" />
+        <classShapeMoniker Id="a001a003-881d-4002-8594-ceea1a9cc1fe" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.25); (3.125 : 3.875); (3.125 : 2.06814697265625); (3.5 : 2.06814697265625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SEOCorDataDataContext/AspNetUser/AspNetUser_UserSite" />
+      <nodes>
+        <classShapeMoniker Id="0018ca02-09d4-490f-a84b-00082f0d5384" />
+        <classShapeMoniker Id="f2df3b12-ef29-4af9-b801-74bbc62927bb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.72139320537861 : 6.02089680989583); (3.06607443490112 : 6.36557803941835 : JumpStart); (3.27767556509888 : 6.57717916961611 : JumpEnd); (3.3125 : 6.61200360451723); (3.3125 : 10.2892976888021); (3.5 : 10.2892976888021)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SEOCorDataDataContext/AspNetUser/AspNetUser_AspNetUserClaim" />
+      <nodes>
+        <classShapeMoniker Id="0018ca02-09d4-490f-a84b-00082f0d5384" />
+        <classShapeMoniker Id="89face9f-e830-4856-9603-4c95c0242c3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.96095776402244); (3.06607443490112 : 6.27703219892356 : JumpStart); (3.18392556509888 : 6.39488332912131 : JumpEnd); (3.21875 : 6.42970776402244); (3.21875 : 8.06814697265625); (3.22916666666667 : 8.06814697265625 : JumpStart); (3.39583333333333 : 8.06814697265625 : JumpEnd); (3.5 : 8.06814697265625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SEOCorDataDataContext/AspNetUser/AspNetUser_AspNetUserLogin" />
+      <nodes>
+        <classShapeMoniker Id="0018ca02-09d4-490f-a84b-00082f0d5384" />
+        <classShapeMoniker Id="96a83a51-b484-4538-99d3-0d9b57a23fbf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.09699625651042); (3.5 : 5.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SEOCorDataDataContext/AspNetUser/AspNetUser_AspNetUserRole" />
+      <nodes>
+        <classShapeMoniker Id="0018ca02-09d4-490f-a84b-00082f0d5384" />
+        <classShapeMoniker Id="a001a003-881d-4002-8594-ceea1a9cc1fe" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.65907348632813); (3.5 : 1.65907348632813)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SEOCorDataDataContext/Site/Site_UserSite" />
+      <nodes>
+        <classShapeMoniker Id="01a006ff-0ad9-4ab3-a0c6-2fb0191dc1d2" />
+        <classShapeMoniker Id="f2df3b12-ef29-4af9-b801-74bbc62927bb" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

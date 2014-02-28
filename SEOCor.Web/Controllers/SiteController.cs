@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using SEOCor.Services.DTO;
 using SEOCor.Services.Interfaces;
+using SEOCor.Web.Models;
 
 namespace SEOCor.Web.Controllers
 {
@@ -29,9 +31,29 @@ namespace SEOCor.Web.Controllers
 
         //
         // GET: /Site/Details/5
-        public ActionResult Details(int id)
+        public ActionResult TrackingScript(int id)
         {
-            return View(_siteService.GetSite(id));
+            string format = @"<!-- SEOCor -->
+                <script type=""text/javascript"">
+                  var _paq = _paq || [];
+                  _paq.push(['trackPageView']);
+                  _paq.push(['enableLinkTracking']);
+                  (function() {
+                    var u=((""https:"" == document.location.protocol) ? ""https"" : ""http"") + ""://{{0}}/"";
+                    _paq.push(['setTrackerUrl', u+'piwik.php']);
+                    _paq.push(['setSiteId', 1]);
+                    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+                    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+                  })();
+
+                </script>
+                <noscript><p><img src=""http://{{0}}/piwik.php?idsite=1"" style=""border:0;"" alt="""" /></p></noscript>
+                <!-- End SEOCor Code -->";
+            return View(new TrackingScriptModel
+            {
+                Site = _siteService.GetSite(User.Identity.GetUserId(), id),
+                TrackingScript = HttpUtility.HtmlAttributeEncode(format)//string.Format(format, ConfigurationManager.AppSettings["analyticsUri"]))
+            });
         }
 
         //
@@ -61,7 +83,7 @@ namespace SEOCor.Web.Controllers
         // GET: /Site/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_siteService.GetSite(id));
+            return View(_siteService.GetSite(User.Identity.GetUserId(), id));
         }
 
         //
