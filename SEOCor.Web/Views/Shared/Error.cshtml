@@ -6,5 +6,12 @@
 
 <h1 class="text-danger">Error.</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
-<h3>@Model.Exception.Message</h3>
-<h4>@Model.Exception.StackTrace</h4>
+@{
+    var ex = Model.Exception;
+    while (ex != null)
+    {
+        <h3>@Model.Exception.Message</h3>
+        <h4>@Model.Exception.StackTrace</h4>
+        ex = ex.InnerException;
+    }
+}
