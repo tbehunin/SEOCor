@@ -84,7 +84,7 @@ namespace SEOCor.Web.Controllers
         [HttpPost]
         public ActionResult Edit(SiteDTO site)
         {
-            _siteService.UpdateSite(site.SiteId, site.Name, site.Domain);
+            _siteService.UpdateSite(User.Identity.GetUserId(), site.SiteId, site.Name, site.Domain);
             return RedirectToAction("Index");
         }
 

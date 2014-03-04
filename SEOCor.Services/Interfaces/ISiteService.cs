@@ -12,6 +12,6 @@ namespace SEOCor.Services.Interfaces
         IEnumerable<SiteDTO> GetSites(string userId);
         SiteDTO GetSite(string userId, int siteId);
         int AddSite(string userId, string siteName, string domain);
-        void UpdateSite(int siteId, string siteName, string domain);
+        void UpdateSite(string userId, int siteId, string siteName, string domain);
     }
 }

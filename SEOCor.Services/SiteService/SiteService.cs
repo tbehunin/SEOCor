@@ -51,18 +51,23 @@ namespace SEOCor.Services.SiteService
 
         public int AddSite(string userId, string siteName, string siteUrl)
         {
-            var externalId = GetExternalSiteId(siteName, siteUrl);
+            var externalId = AddAnalyticsSite(siteName, siteUrl);
             return _siteRepository.AddSite(userId, siteName, siteUrl, externalId);
         }
 
-        public void UpdateSite(int siteId, string siteName, string siteUrl)
+        public void UpdateSite(string userId, int siteId, string siteName, string siteUrl)
         {
-            _siteRepository.UpdateSite(siteId, siteName, siteUrl);
+            var site = _siteRepository.GetSites(userId).Where(x => x.SiteId.Equals(siteId)).SingleOrDefault();
+            if (site != null)
+            {
+                UpdateAnalyticsSite(site.AnalyticsSiteId, siteName, siteUrl);
+                _siteRepository.UpdateSite(siteId, siteName, siteUrl);
+            }
         }
 
-        private int GetExternalSiteId(string siteName, string siteUrl)
+        private int AddAnalyticsSite(string siteName, string siteUrl)
         {
-            var analyticsUri = "http://" + ConfigurationManager.AppSettings["analyticsUri"];
+            var analyticsUri = "http://" + ConfigurationManager.AppSettings["privateAnalyticsUri"];
             var analyticsAuthToken = ConfigurationManager.AppSettings["analyticsAuthToken"];
             var urlReq = string.Format("{0}?module=API&method=SitesManager.addSite&siteName={1}&urls={2}&format=JSON&token_auth={3}",
                 analyticsUri, siteName, HttpUtility.UrlEncode(siteUrl), analyticsAuthToken);
@@ -75,6 +80,29 @@ namespace SEOCor.Services.SiteService
             var jsonTextReader = new JsonTextReader(new StreamReader(respStream));
             var obj = (JObject)serializer.Deserialize(jsonTextReader);
             return (int)obj["value"];
+        }
+
+        private void UpdateAnalyticsSite(int siteId, string siteName, string siteUrl)
+        {
+            var analyticsUri = "http://" + ConfigurationManager.AppSettings["privateAnalyticsUri"];
+            var analyticsAuthToken = ConfigurationManager.AppSettings["analyticsAuthToken"];
+            var urlReq = string.Format("{0}?module=API&method=SitesManager.updateSite&idSite={1}&siteName={2}&urls={3}&format=JSON&token_auth={4}",
+                analyticsUri, siteId, siteName, HttpUtility.UrlEncode(siteUrl), analyticsAuthToken);
+            var request = (HttpWebRequest)WebRequest.Create(urlReq);
+            request.Method = "POST";
+            request.ContentLength = 0;
+            var response = (HttpWebResponse)request.GetResponse();
+            var respStream = response.GetResponseStream();
+
+            var serializer = new JsonSerializer();
+            var jsonTextReader = new JsonTextReader(new StreamReader(respStream));
+            var obj = (JObject)serializer.Deserialize(jsonTextReader);
+            var result = (string)obj["result"];
+            if (!result.ToUpper().Equals("SUCCESS"))
+            {
+                var errorMsg = (string)obj["message"];
+                throw new Exception(string.Format("Failed to update analytics site: {0}", errorMsg));
+            }
         }
     }
 }
