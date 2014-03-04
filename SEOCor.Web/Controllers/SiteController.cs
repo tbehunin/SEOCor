@@ -68,15 +68,8 @@ namespace SEOCor.Web.Controllers
         [HttpPost]
         public ActionResult Create(SiteDTO site)
         {
-            try
-            {
-                int id = _siteService.AddSite(User.Identity.GetUserId(), site.Name, site.Domain);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            int id = _siteService.AddSite(User.Identity.GetUserId(), site.Name, site.Domain);
+            return RedirectToAction("Index");
         }
 
         //
@@ -91,15 +84,8 @@ namespace SEOCor.Web.Controllers
         [HttpPost]
         public ActionResult Edit(SiteDTO site)
         {
-            try
-            {
-                _siteService.UpdateSite(site.SiteId, site.Name, site.Domain);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _siteService.UpdateSite(site.SiteId, site.Name, site.Domain);
+            return RedirectToAction("Index");
         }
 
         //
